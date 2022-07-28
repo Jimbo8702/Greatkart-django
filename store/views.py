@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from carts.models import Cart, CartItem
 from carts.views import _cart_id
 from category.models import Category
-from .models import Product, ReviewRating
+from .models import Product, ReviewRating, ProductGallery
 from django.core.paginator import Paginator
 from .forms import ReviewForm
 from django.contrib import messages
@@ -58,11 +58,14 @@ def product_detail(request, category_slug, product_slug):
 
     reviews = ReviewRating.objects.filter(product_id=single_product.id, status=True)
 
+    product_gallery = ProductGallery.objects.filter(product_id=single_product.id)
+
     context = {
         "single_product": single_product,
         "in_cart": in_cart,
         "orderproduct": orderproduct,
         "reviews": reviews,
+        "product_gallery": product_gallery,
     }
 
     return render(request, "store/product_detail.html", context)
