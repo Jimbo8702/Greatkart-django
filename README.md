@@ -9,6 +9,6 @@ This will be deployed to AWS with a Postgres DB.
 - Admin honeypot to hide original Admin url and to see login attempts
 - Customers must purchase item to review
 - Account page to see all orders and invoices 
-- paypal payment portal 
+- Paypal payment portal 
 
 
